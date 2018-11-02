@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Select
+    options={
+        Array [
+            "1",
+            "2",
+            "3",
+          ]
+    }
+    value="1"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <option
+          value="1"
+>
+          1
+</option>,
+        <option
+          value="2"
+>
+          2
+</option>,
+        <option
+          value="3"
+>
+          3
+</option>,
+      ],
+      "onChange": undefined,
+      "value": "1",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": "1",
+          "value": "1",
+        },
+        "ref": null,
+        "rendered": "1",
+        "type": "option",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": "2",
+          "value": "2",
+        },
+        "ref": null,
+        "rendered": "2",
+        "type": "option",
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "host",
+        "props": Object {
+          "children": "3",
+          "value": "3",
+        },
+        "ref": null,
+        "rendered": "3",
+        "type": "option",
+      },
+    ],
+    "type": "select",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <option
+            value="1"
+>
+            1
+</option>,
+          <option
+            value="2"
+>
+            2
+</option>,
+          <option
+            value="3"
+>
+            3
+</option>,
+        ],
+        "onChange": undefined,
+        "value": "1",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": "1",
+            "value": "1",
+          },
+          "ref": null,
+          "rendered": "1",
+          "type": "option",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": "2",
+            "value": "2",
+          },
+          "ref": null,
+          "rendered": "2",
+          "type": "option",
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "host",
+          "props": Object {
+            "children": "3",
+            "value": "3",
+          },
+          "ref": null,
+          "rendered": "3",
+          "type": "option",
+        },
+      ],
+      "type": "select",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

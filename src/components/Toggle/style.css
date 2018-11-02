@@ -1,0 +1,39 @@
+.toggle {
+  display: grid;
+  grid-template-rows: 1rem;
+  grid-template-columns: 2rem;
+  justify-items: center;
+  align-items: center;
+
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.toggle__line {
+  grid-row: 1/2;
+  grid-column: 1/2;
+
+  width: 2rem;
+  height: 0.1rem;
+
+  background-color: #47d7ac;
+  border: 0;
+}
+
+.toggle__slider {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  margin-left: -1rem;
+
+  width: 1rem;
+  height: 1rem;
+
+  background-color: #47d7ac;
+  border-radius: 50%;
+
+  transition: all 0.1s linear;
+}
+
+.toggleChecked {
+  margin-left: 1rem;
+}

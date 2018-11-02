@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+import List from './components/List/';
+
 import characters from "./fixtures/characters.json";
 
 class App extends Component {
@@ -16,7 +18,7 @@ class App extends Component {
                 </header>
 
                 <section className="App-content">
-                    {/* Lovely character list goes here */}
+                    <List items={characters} />
                 </section>
             </div>
         );
