@@ -1,0 +1,17 @@
+.CharacterEntry{
+  max-width: 600px;
+  margin: 10px 10px 10px 100px;
+  text-align: left;
+  position: relative;
+
+  img{ position: absolute;
+    top:0;
+    left: -80px;
+    max-width: 60px;
+    border-radius: 50%;
+  }
+}
+
+.CharacterCategory{
+  text-transform: capitalize;
+}
