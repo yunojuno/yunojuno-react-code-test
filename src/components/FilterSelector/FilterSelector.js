@@ -5,9 +5,9 @@ import classes from './FilterSelector.module.scss';
 const filterSelector = (props) => (
   <div className={classes.FilterSelector} >
   <h5>{props.title}</h5>
-    <select>
+    <select onChange={props.changed}>
       {props.options.map(option => {
-          return <option value={option} onClick={props.click} key={option}>{option}</option>
+          return <option value={option} key={option}>{option}</option>
         })}
     </select>
   </div>

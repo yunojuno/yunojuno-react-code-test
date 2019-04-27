@@ -8,29 +8,59 @@ import CharacterEntry from "./components/CharacterEntry/CharacterEntry"
 
 class App extends Component {
 
-  state = {
-    characters
-  }
+    state = {
+      characters,
+      cache: {},
+      touched: false,
+      categories: [],
+      filters: ["Significance", "Alphabetical"]
+    }
 
+    sorterChangedHandler = (event) => {
 
-filterChangedHandler = () => {
+      let characters = [...this.state.characters];
+      const targetSort = event.target.value;
+      switch(targetSort){
+        case "Alphabetical":{
+          characters.sort((a, b) => {
+            const nameA = a.name.toUpperCase().replace("É", "E");
+            const nameB = b.name.toUpperCase().replace("É", "E");
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          })
+          break
+        }
+        case "Significance":{
+          characters.sort((a, b) => a.significanceIndex - b.significanceIndex);
+          break
+        }
+        default:{
+          characters = this.state.cache.filter(obj => obj.category === targetSort)
+          break
+        }
+      }
+      this.setState( {characters: characters, touched: true})
+    }
 
-}
-
-orderChangedHandler = () => {
-  
-}
-
-
-
-    render() {
+    componentWillMount(){
+      if (this.state.touched === false){
+        const charcache = this.state.characters;
         let catsList = []
         for (let character of this.state.characters ){
           catsList = [...catsList, character.category]
         }
-        const uniqueCategories = [...new Set(catsList)]
-        const filters = ["Alphabetical", "Significance"]
+        catsList = [...new Set(catsList)]
+        this.setState( {categories: catsList, cache: charcache } )
+      }
+    }
 
+
+    render() {
         return (
             <div className="App">
                 <header className="App-header">
@@ -42,8 +72,15 @@ orderChangedHandler = () => {
 
                 <section className="App-content">
 
-                  <FilterSelector title="Category" click={this.filterChangedHandler} options={uniqueCategories} />
-                  <FilterSelector title="Order by" click={this.orderChangedHandler} options={filters} />
+                  <FilterSelector
+                  title="Category"
+                  changed={this.sorterChangedHandler}
+                  options={this.state.categories} />
+
+                  <FilterSelector
+                  title="Order by"
+                  changed={this.sorterChangedHandler}
+                  options={this.state.filters} />
 
                   {this.state.characters.map(character => {
                     return <CharacterEntry
@@ -62,25 +99,3 @@ orderChangedHandler = () => {
 }
 
 export default App;
-
-//
-// class App extends Component {
-//     render() {
-//         return (
-//             <div className="App">
-//                 <header className="App-header">
-//                     <img src={logo} className="App-logo" alt="logo" />
-//                     <h1 className="App-title">
-//                         Lord of the Rings Character Index
-//                     </h1>
-//                 </header>
-//
-//                 <section className="App-content">
-//                     {/* Lovely character list goes here */}
-//                 </section>
-//             </div>
-//         );
-//     }
-// }
-//
-// export default App;

@@ -3,15 +3,26 @@
   margin: 10px 10px 10px 100px;
   text-align: left;
   position: relative;
+  @media (max-width: 500px){
+  margin: 10px 10px 10px 10px;
+  }
 
   img{ position: absolute;
     top:0;
     left: -80px;
     max-width: 60px;
     border-radius: 50%;
+    @media (max-width: 500px){
+      position: static;
+    }
   }
-}
 
-.CharacterCategory{
-  text-transform: capitalize;
+  h3{
+    margin: 10px 0 5px;
+  }
+
+  .CharacterCategory{
+    text-transform: capitalize;
+    margin: 5px 0;
+  }
 }
