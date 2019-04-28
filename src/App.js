@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import classes from "./App.module.scss";
 
 import characters from "./fixtures/characters.json";
 import FilterSelector from "./components/FilterSelector/FilterSelector"
@@ -16,27 +16,40 @@ class App extends Component {
       filters: ["Significance", "Alphabetical"]
     }
 
+    alphaSorter = (sortMe) =>{
+      sortMe.sort((a, b) => {
+        //Could a plugin give better coverage to replace nonstandard glyphs?
+        const nameA = a.name.toUpperCase().replace("É", "E");
+        const nameB = b.name.toUpperCase().replace("É", "E");
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      })
+    }
+
     sorterChangedHandler = (event) => {
 
       let characters = [...this.state.characters];
+      let allCharacters = this.state.cache;
+      //Must be a better way of keeping a backup of the full list of characters than running twice the operations ever time?
       const targetSort = event.target.value;
       switch(targetSort){
         case "Alphabetical":{
-          characters.sort((a, b) => {
-            const nameA = a.name.toUpperCase().replace("É", "E");
-            const nameB = b.name.toUpperCase().replace("É", "E");
-            if (nameA < nameB) {
-              return -1;
-            }
-            if (nameA > nameB) {
-              return 1;
-            }
-            return 0;
-          })
+          this.alphaSorter(characters)
+          this.alphaSorter(allCharacters)
           break
         }
         case "Significance":{
           characters.sort((a, b) => a.significanceIndex - b.significanceIndex);
+          allCharacters.sort((a, b) => a.significanceIndex - b.significanceIndex);
+          break
+        }
+        case "All":{
+          characters = allCharacters
           break
         }
         default:{
@@ -50,7 +63,7 @@ class App extends Component {
     componentWillMount(){
       if (this.state.touched === false){
         const charcache = this.state.characters;
-        let catsList = []
+        let catsList = ["All"]
         for (let character of this.state.characters ){
           catsList = [...catsList, character.category]
         }
@@ -62,15 +75,15 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">
+            <div className={classes.App}>
+                <header className={classes.AppHeader}>
+                    <img src={logo} className={classes.AppLogo} alt="logo" />
+                    <h1 className={classes.AppTitle}>
                         Lord of the Rings Character Index
                     </h1>
                 </header>
 
-                <section className="App-content">
+                <section className={classes.AppContent}>
 
                   <FilterSelector
                   title="Category"
