@@ -12,7 +12,7 @@ class App extends Component {
       characters,
       cache: {},
       touched: false,
-      categories: [],
+      categories: [test, test],
       filters: ["Significance", "Alphabetical"]
     }
 
@@ -72,7 +72,6 @@ class App extends Component {
       }
     }
 
-
     render() {
         return (
             <div className={classes.App}>
@@ -95,6 +94,7 @@ class App extends Component {
                   changed={this.sorterChangedHandler}
                   options={this.state.filters} />
 
+                  <ul>
                   {this.state.characters.map(character => {
                     return <CharacterEntry
                       name={character.name}
@@ -105,6 +105,7 @@ class App extends Component {
                       avatar={character.avatar}
                     />
                   })}
+                  </ul>
                 </section>
             </div>
         );
