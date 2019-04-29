@@ -5,7 +5,7 @@ import CharacterEntry from "./CharacterEntry";
 
 configure({adapter: new Adapter()});
 
-describe('<NavigationItems />', () => {
+describe('<CharacterEntry />', () => {
   it("renders without crashing", () => {
       const wrapper = shallow(<CharacterEntry />);
       expect(wrapper.find(CharacterEntry));

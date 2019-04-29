@@ -12,7 +12,7 @@ class App extends Component {
       characters,
       cache: {},
       touched: false,
-      categories: [test, test],
+      categories: [],
       filters: ["Significance", "Alphabetical"]
     }
 

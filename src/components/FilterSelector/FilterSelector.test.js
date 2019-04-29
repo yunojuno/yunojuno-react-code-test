@@ -5,9 +5,9 @@ import FilterSelector from "./FilterSelector";
 
 configure({adapter: new Adapter()});
 
-describe('<NavigationItems />', () => {
+describe('<FilterSelector />', () => {
   it("renders without crashing", () => {
-      const wrapper = shallow(<FilterSelector options={[test, test]} />);
+      const wrapper = shallow(<FilterSelector options={["1", "2"]} />);
       expect(wrapper.find(FilterSelector));
   });
 });
